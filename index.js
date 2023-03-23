@@ -1,31 +1,21 @@
-let drivers = [];
-const returnFirstTwoDrivers = function(drivers){
-    return drivers.slice(0,2)
+function receivesAFunction(callback){
+    return callback()
 }
 
-const returnLastTwoDrivers = function(drivers){
-    return drivers.slice(-2)
-}
+receivesAFunction(() => "Hello World")
 
-let selectingDrivers = [returnFirstTwoDrivers, returnLastTwoDrivers]
-
-let createFareMultiplier = function (fareMultiplier){
-     return function (num){
-        return fareMultiplier * num
+function returnsANamedFunction(){
+    return function namedFunc(){
+        return "Hello World"
     }
-   
 }
 
-let fareDoubler = createFareMultiplier(2)
- fareDoubler()
+returnsANamedFunction()
 
- let fareTripler = createFareMultiplier(3)
- fareTripler()
+let returnsAnAnonymousFunction = function(){
+    return function(){
+        return "Hello World"
+    }
+}
 
- function selectDifferentDrivers(arrayOfDrivers, func = returnFirstTwoDrivers() ){
-    return func(arrayOfDrivers)
-
-
- }
-
- selectDifferentDrivers(returnLastTwoDrivers())
+returnsAnAnonymousFunction()
